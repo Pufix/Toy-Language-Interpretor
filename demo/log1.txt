@@ -1,0 +1,190 @@
+Stack:
+[string varf;
+varf=test.in;
+openFile(varf);
+int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{}
+Output:
+[]
+
+Stack:
+[varf=test.in;
+openFile(varf);
+int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf), string varf]
+Symbol Table:
+{}
+Output:
+[]
+
+Stack:
+[varf=test.in;
+openFile(varf);
+int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=}
+Output:
+[]
+
+Stack:
+[openFile(varf);
+int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf), varf=test.in]
+Symbol Table:
+{varf=}
+Output:
+[]
+
+Stack:
+[openFile(varf);
+int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in}
+Output:
+[]
+
+Stack:
+[int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf), openFile(varf)]
+Symbol Table:
+{varf=test.in}
+Output:
+[]
+
+Stack:
+[int varc;
+readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in}
+Output:
+[]
+
+Stack:
+[readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf), int varc]
+Symbol Table:
+{varf=test.in}
+Output:
+[]
+
+Stack:
+[readFile(varf, varc);
+print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in, varc=0}
+Output:
+[]
+
+Stack:
+[print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf), readFile(varf, varc)]
+Symbol Table:
+{varf=test.in, varc=0}
+Output:
+[]
+
+Stack:
+[print(varc);
+readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in, varc=15}
+Output:
+[]
+
+Stack:
+[readFile(varf, varc);
+print(varc);
+closeFile(varf), print(varc)]
+Symbol Table:
+{varf=test.in, varc=15}
+Output:
+[]
+
+Stack:
+[readFile(varf, varc);
+print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in, varc=15}
+Output:
+[15]
+
+Stack:
+[print(varc);
+closeFile(varf), readFile(varf, varc)]
+Symbol Table:
+{varf=test.in, varc=15}
+Output:
+[15]
+
+Stack:
+[print(varc);
+closeFile(varf)]
+Symbol Table:
+{varf=test.in, varc=50}
+Output:
+[15]
+
+Stack:
+[closeFile(varf), print(varc)]
+Symbol Table:
+{varf=test.in, varc=50}
+Output:
+[15]
+
+Stack:
+[closeFile(varf)]
+Symbol Table:
+{varf=test.in, varc=50}
+Output:
+[15, 50]
+
+Stack:
+[]
+Symbol Table:
+{varf=test.in, varc=50}
+Output:
+[15, 50]
+
