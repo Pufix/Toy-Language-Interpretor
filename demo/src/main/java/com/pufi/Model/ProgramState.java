@@ -15,17 +15,20 @@ public class ProgramState {
     private InterfaceList<InterfaceValue> output;
     private InterfaceStatement originalProgram;
     private InterfaceDictionary<String, BufferedReader> fileTable;
+    private InterfaceHeap<InterfaceValue> heapTable;
 
     public ProgramState(InterfaceStack<InterfaceStatement> stack,
                         InterfaceDictionary<String, InterfaceValue> symbolTable,
                         InterfaceList<InterfaceValue> output,
                         InterfaceStatement originalProgram,
-                        InterfaceDictionary<String, BufferedReader> fileTable){
+                        InterfaceDictionary<String, BufferedReader> fileTable,
+                        InterfaceHeap<InterfaceValue> heapTable){
         this.stack = stack;
         this.symbolTable = symbolTable;
         this.output = output;
         this.originalProgram = originalProgram;
         this.fileTable = fileTable;
+        this.heapTable = heapTable;
         stack.push(originalProgram);
     }
 
@@ -60,12 +63,21 @@ public class ProgramState {
         }
 
     }
-
+    public void setHeapTable(InterfaceHeap<InterfaceValue> heapTable){
+        this.heapTable = heapTable;
+    }
     public String toString(){
-        return "Stack:\n" + stack.toString() + "\nSymbol Table:\n" + symbolTable.toString() + "\nOutput:\n" + output.toString() + "\n";
+        return "Stack: " + stack.toString() + "\n" +
+                "Symbol Table: " + symbolTable.toString() + "\n" +
+                "Output: " + output.toString() + "\n" +
+                "Heap Table: " + heapTable.toString() + "\n";
     }
 
     public InterfaceDictionary<String, BufferedReader> getFileTable() {
         return fileTable;
+    }
+
+    public InterfaceHeap<InterfaceValue> getHeapTable() {
+        return heapTable;
     }
 }

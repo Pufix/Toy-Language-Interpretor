@@ -1,8 +1,5 @@
 package com.pufi.Model.ADT;
 
-import com.pufi.Model.*;
-import com.pufi.Model.Statements.InterfaceStatement;
-import com.pufi.Model.Values.InterfaceValue;
 import java.util.Stack;
 
 public interface InterfaceStack<Type> {

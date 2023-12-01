@@ -4,7 +4,6 @@ import com.pufi.Exceptions.*;
 import com.pufi.Model.ADT.InterfaceDictionary;
 import com.pufi.Model.ADT.InterfaceHeap;
 import com.pufi.Model.Types.BoolType;
-import com.pufi.Model.Types.InterfaceType;
 import com.pufi.Model.Values.BoolValue;
 import com.pufi.Model.Values.InterfaceValue;
 
@@ -27,11 +26,11 @@ public class LogicExpression implements Expression{
 
     @Override
 
-    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table) throws EvalException{
+    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table,InterfaceHeap<InterfaceValue> heap) throws EvalException{
         InterfaceValue v1, v2;
-        v1 = e1.evaluate(table);
+        v1 = e1.evaluate(table,heap);
         if(v1.getType().equals(new BoolType())){
-            v2 = e2.evaluate(table);
+            v2 = e2.evaluate(table,heap);
             if(v2.getType().equals(new BoolType())){
                 BoolValue i1 = (BoolValue)v1;
                 BoolValue i2 = (BoolValue)v2;

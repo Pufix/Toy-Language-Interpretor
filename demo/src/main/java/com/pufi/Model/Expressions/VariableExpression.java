@@ -2,6 +2,7 @@ package com.pufi.Model.Expressions;
 
 import com.pufi.Exceptions.EvalException;
 import com.pufi.Model.ADT.InterfaceDictionary;
+import com.pufi.Model.ADT.InterfaceHeap;
 import com.pufi.Model.Values.InterfaceValue;
 
 public class VariableExpression implements Expression{
@@ -17,7 +18,7 @@ public class VariableExpression implements Expression{
     }
 
     @Override
-    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table) throws EvalException {
+    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table,InterfaceHeap<InterfaceValue> heap) throws EvalException {
         try {
             return table.lookup(id);
         } catch (Exception e) {

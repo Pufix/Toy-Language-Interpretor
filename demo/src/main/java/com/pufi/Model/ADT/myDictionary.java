@@ -1,11 +1,11 @@
 package com.pufi.Model.ADT;
 
-import com.pufi.Model.*;
-
 import java.util.HashMap;
+import java.util.Map;
+
 
 public class myDictionary<Key,Value> implements InterfaceDictionary<Key,Value>{
-    private HashMap<Key,Value> dictionary;
+    private Map<Key,Value> dictionary;
     
     public myDictionary(){
         dictionary = new HashMap<Key,Value>();
@@ -31,12 +31,12 @@ public class myDictionary<Key,Value> implements InterfaceDictionary<Key,Value>{
     public void clear(){
         dictionary.clear();
     }
-    public InterfaceDictionary<Key, Value> clone() {
-        InterfaceDictionary<Key, Value> clone = new myDictionary<Key, Value>();
-        for (Key key : dictionary.keySet())
-            clone.add(key, dictionary.get(key));
-        return clone;
+    @Override
+    public Map<Key, Value> getContent() {
+        return this.dictionary;
     }
+
+    
 
 
 }

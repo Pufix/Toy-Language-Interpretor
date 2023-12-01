@@ -18,7 +18,7 @@ public class PrintStatement implements InterfaceStatement{
     @Override
 
     public ProgramState execute(ProgramState state) throws Exception{
-        state.getOutput().add(expression.evaluate(state.getSymbolTable()));
+        state.getOutput().add(expression.evaluate(state.getSymbolTable(),state.getHeapTable()));
         return state;
     }
 

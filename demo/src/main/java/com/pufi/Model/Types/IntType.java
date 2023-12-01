@@ -15,4 +15,6 @@ public class IntType implements InterfaceType{
     public InterfaceValue defaultValue(){
         return new IntValue(0);
     }
+
+    
 }

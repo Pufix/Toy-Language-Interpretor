@@ -1,6 +1,4 @@
 package com.pufi.Model.ADT;
-
-import java.util.ArrayList;
 public class myList<Type> implements InterfaceList<Type>{
     private java.util.ArrayList<Type> list;
 

@@ -29,8 +29,9 @@ public class IfElseStatement implements InterfaceStatement{
     @Override
     public ProgramState execute(ProgramState state) throws StatementException {
         InterfaceDictionary<String, InterfaceValue> symbolTable = state.getSymbolTable();
+        InterfaceHeap<InterfaceValue> heap = state.getHeapTable();
         try{
-            InterfaceValue condition = expression.evaluate(symbolTable);
+            InterfaceValue condition = expression.evaluate(symbolTable,heap);
             BoolValue boolCondition = (BoolValue) condition;
             if (boolCondition.getValue()){
                 state.getStack().push(thenStatement);

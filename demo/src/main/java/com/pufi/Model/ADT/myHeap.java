@@ -1,12 +1,19 @@
 package com.pufi.Model.ADT;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.pufi.Model.Values.InterfaceValue;
 
 public class myHeap<Type> implements InterfaceHeap<Type>{
-    private HashMap<Integer, Type> heap;
+    private Map<Integer, Type> heap;
     private int freeAddress;
 
     public myHeap(){
         heap = new HashMap<Integer, Type>();
+        freeAddress = 1;
+    }
+    public myHeap(Map<Integer, Type> map){
+        this.heap = map;
         freeAddress = 1;
     }
 
@@ -29,12 +36,13 @@ public class myHeap<Type> implements InterfaceHeap<Type>{
     public void clearAddress(int address){
         heap.remove(address);
     }
-
-    public void setContent(HashMap<Integer, Type> newHeap){
-        heap = newHeap;
+    @Override
+    public void setContent(myHeap<Type> newHeap){
+        heap = newHeap.getContent();
+        freeAddress = newHeap.getFreeAddress();
     }
 
-    public HashMap<Integer, Type> getContent(){
+    public Map<Integer, Type> getContent(){
         return heap;
     }
 
@@ -43,7 +51,9 @@ public class myHeap<Type> implements InterfaceHeap<Type>{
     }
 
     public int getFreeAddress(){
-        return freeAddress++;
+        freeAddress = 1;
+        while(heap.containsKey(freeAddress))
+            freeAddress++;
+        return freeAddress;
     }
-
 }

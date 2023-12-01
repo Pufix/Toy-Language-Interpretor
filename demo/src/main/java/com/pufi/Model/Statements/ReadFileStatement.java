@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 
 import com.pufi.Model.ProgramState;
 import com.pufi.Model.ADT.InterfaceDictionary;
+import com.pufi.Model.ADT.InterfaceHeap;
 import com.pufi.Model.Expressions.Expression;
 import com.pufi.Model.Types.IntType;
 import com.pufi.Model.Types.StringType;
@@ -27,15 +28,16 @@ public class ReadFileStatement implements InterfaceStatement {
     public ProgramState execute(ProgramState state) throws Exception{
         InterfaceDictionary<String, InterfaceValue> symbolTable = state.getSymbolTable();
         InterfaceDictionary<String, BufferedReader> fileTable = state.getFileTable();
+        InterfaceHeap<InterfaceValue> heap = state.getHeapTable();
         if(!symbolTable.isDefined(variableName))
             throw new Exception("The variable is not defined!");
         if(!symbolTable.lookup(variableName).getType().equals(new IntType()))
             throw new Exception("The types are not the same!");
 
         try{
-            if (!(expression.evaluate(symbolTable).getType().equals(new StringType())))
+            if (!(expression.evaluate(symbolTable, heap).getType().equals(new StringType())))
                 throw new Exception("The expression is not a string!");
-            StringValue fileStream = (StringValue) expression.evaluate(symbolTable);
+            StringValue fileStream = (StringValue) expression.evaluate(symbolTable, heap);
 
             if(!fileTable.isDefined(fileStream.getValue()))
                 throw new Exception("The file is not opened!");

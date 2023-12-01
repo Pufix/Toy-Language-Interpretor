@@ -1,5 +1,8 @@
 package com.pufi.Model.ADT;
 
+import java.util.Map;
+
+
 public interface InterfaceDictionary<Key,Value> {
     void add(Key key, Value value);
     void update(Key key, Value value);
@@ -8,5 +11,5 @@ public interface InterfaceDictionary<Key,Value> {
     boolean isDefined(Key key);
     String toString();
     void clear();
-    InterfaceDictionary<Key,Value> clone();
+    Map<Key, Value> getContent();
 }

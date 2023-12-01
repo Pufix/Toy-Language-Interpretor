@@ -1,7 +1,6 @@
 package com.pufi.Model.ADT;
 
 import java.util.Stack;
-import com.pufi.Model.ADT.InterfaceStack;
 
 public class myStack<Type> implements InterfaceStack<Type>{
     Stack<Type> stack;

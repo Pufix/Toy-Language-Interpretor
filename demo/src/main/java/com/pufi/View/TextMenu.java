@@ -4,12 +4,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 import com.pufi.Controller.Controller;
-import com.pufi.Model.Expressions.Expression;
-import com.pufi.Repository.Repo;
-import com.pufi.View.Command;
 
 public class TextMenu {
-    private Controller controller;
     private Map<String,Command>commands;
     //print the menu
     public TextMenu(){

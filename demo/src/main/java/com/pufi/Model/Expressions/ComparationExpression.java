@@ -4,7 +4,6 @@ import com.pufi.Exceptions.*;
 import com.pufi.Model.ADT.InterfaceDictionary;
 import com.pufi.Model.ADT.InterfaceHeap;
 import com.pufi.Model.Types.IntType;
-import com.pufi.Model.Types.InterfaceType;
 import com.pufi.Model.Values.*;
 
 public class ComparationExpression implements Expression{
@@ -24,11 +23,11 @@ public class ComparationExpression implements Expression{
     }
 
     @Override
-    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table) throws EvalException{
+    public InterfaceValue evaluate(InterfaceDictionary<String, InterfaceValue> table,InterfaceHeap<InterfaceValue> heap) throws EvalException{
         InterfaceValue firstValue, secondValue;
-        firstValue = firstExpression.evaluate(table);
+        firstValue = firstExpression.evaluate(table,heap);
         if (firstValue.getType().equals(new IntType())){
-            secondValue = secondExpression.evaluate(table);
+            secondValue = secondExpression.evaluate(table,heap);
             if (secondValue.getType().equals(new IntType())){
                 IntValue firstIntValue = (IntValue) firstValue;
                 IntValue secondIntValue = (IntValue) secondValue;
